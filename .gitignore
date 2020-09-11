@@ -1,6 +1,14 @@
 *.csv
 *.zip
 *.pdf
-terraform-eks/.terraform
+terraform-eks/.terraform/*
 ./terraform-eks/.terraform
 *.terraform
+**/.terraform/*
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
