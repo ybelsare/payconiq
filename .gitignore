@@ -1,3 +1,6 @@
 *.csv
 *.zip
 *.pdf
+terraform-eks/.terraform
+./terraform-eks/.terraform
+*.terraform
