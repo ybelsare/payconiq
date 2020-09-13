@@ -21,9 +21,9 @@ https://github.com/ybelsare/payconiq.git
 *        delete.yml              -- clean up the wordpress and mysql
 
 # Objective
-* Create a k8s cluster on amazon eks - Created using Terraform
-* Deploy a stateless application - Deployed nginx using Terraform and Helm charts
-* Deploy a stateful application  - Deployed mysql and wordpress using Ansible
+1) Create a k8s cluster on amazon eks - Created using Terraform
+2) Deploy a stateless application - Deployed nginx using Terraform and Helm charts
+3) Deploy a stateful application  - Deployed mysql and wordpress using Ansible
 
 # Pre Requisites
 1) Install Terraform .
