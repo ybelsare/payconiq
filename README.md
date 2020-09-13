@@ -37,7 +37,7 @@ Deploy a stateful application  - Deployed mysql and wordpress using Ansible
    $ aws eks update-kubeconfig --name terraform-eks-demo
 
 # Steps
-1) Clone the above mentioned repository
+1) Clone the above mentioned repository from the develop branch
 2) Navigate to the folder payconiq
 # Create the eks cluster    
 3) Navigate to the terraform-eks folder
@@ -49,7 +49,7 @@ Deploy a stateful application  - Deployed mysql and wordpress using Ansible
 This will create a eks cluster . (NOTE - This will take approx 10 mins) with the following details
     Cluster name = terraform-eks-demo
     node         = demo
-    
+
 5) run terraform destroy to clean up 
 
 # Deploy the stateless nginx application
