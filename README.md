@@ -8,17 +8,17 @@ https://github.com/ybelsare/payconiq.git
 3) Helm
 
 # Structure
-payconiq
-    - terraform-eks             -- Terraform code to create the eks cluster
-    - terraform-helm-nginx      -- Terraform code to deploy the nginx webserver to the cluster
-    - cluster-aws-eks           -- Ansible code to deploy wordpress and mysql 
-        - vars
-            - main.yml          -- Configuration file for the eks cluster
-            - wordpress
-                - mysql.yml     -- k8s deployment file for mysql
-                - wordpress.yml -- k8s deployment file for wordpress
-        deploy.yml              -- deploys the wordpress and mysql application
-        delete.yml              -- clean up the wordpress and mysql
+* payconiq
+*    - terraform-eks             -- Terraform code to create the eks cluster
+*    - terraform-helm-nginx      -- Terraform code to deploy the nginx webserver to the cluster
+*    - cluster-aws-eks           -- Ansible code to deploy wordpress and mysql 
+*        - vars
+*            - main.yml          -- Configuration file for the eks cluster
+*            - wordpress
+*                - mysql.yml     -- k8s deployment file for mysql
+*                - wordpress.yml -- k8s deployment file for wordpress
+*        deploy.yml              -- deploys the wordpress and mysql application
+*        delete.yml              -- clean up the wordpress and mysql
 
 # Objective
 * Create a k8s cluster on amazon eks - Created using Terraform
