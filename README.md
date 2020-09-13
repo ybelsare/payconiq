@@ -2,6 +2,11 @@
 # Github
 https://github.com/ybelsare/payconiq.git
 
+# Technologies
+Terraform
+Ansible
+Helm
+
 # Structure
 payconiq
     - terraform-eks             -- Terraform code to create the eks cluster
@@ -62,5 +67,7 @@ This will deploy the nginx webserver on the eks cluster listening on port 80
 
 # Deploy the stateful application wordpress
 1) navigate to the cluster-aws-eks folder
-2) verify that vars/main.yml contains the correct configuration for the 
+2) verify that vars/main.yml contains the correct configuration for the cluster
+3) run the command $> ansible-playbook deploy.yml to create the wordpress deployment
+4) run the command $> ansible-playbook delete.yml to clean up 
 
