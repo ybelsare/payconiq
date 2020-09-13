@@ -26,22 +26,24 @@ Deploy a stateless application - Deployed nginx using Terraform and Helm charts
 Deploy a stateful application  - Deployed mysql and wordpress using Ansible
 
 # Pre Requisites
-0) Install terraform .
-1) Install AWS CLI 
+1) Install Terraform .
+2) Install Ansible 
+3) Install AWS CLI 
     Configure AWS CLI by the command . NOTE - The secret will be send by email seperately 
     $ AWS configure
     verify by
     $ aws configure list
-2) Install AWS IAM Authenticator 
-3) Install kubectl . (verify by using some kubectl commands)
-4) Add all of the above in $PATH
-5) setup your kubeconfig file by the command update-kubeconfig where terraform-eks-demo is the name of the  cluster.
+4) Install AWS IAM Authenticator 
+5) Install kubectl . (verify by using some kubectl commands)
+6) Add all of the above in $PATH
+7) setup your kubeconfig file by the command update-kubeconfig where terraform-eks-demo is the name of the  cluster.
    by default this file is in ~/.kube/config.
    Config file for this assignment is added in the github repository . Copy it in your ~/.kube folder
    
    $ aws eks update-kubeconfig --name terraform-eks-demo
 
 # Steps
+Before starting verify that all pre requistes are met and all the tools are properly configured and operational
 1) Clone the above mentioned repository from the develop branch
 2) Navigate to the folder payconiq
 # Create the eks cluster    
