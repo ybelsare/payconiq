@@ -3,9 +3,9 @@
 https://github.com/ybelsare/payconiq.git
 
 # Technologies
-Terraform
-Ansible
-Helm
+1) Terraform
+2) Ansible
+3) Helm
 
 # Structure
 payconiq
@@ -21,9 +21,9 @@ payconiq
         delete.yml              -- clean up the wordpress and mysql
 
 # Objective
-Create a k8s cluster on amazon eks - Created using Terraform
-Deploy a stateless application - Deployed nginx using Terraform and Helm charts
-Deploy a stateful application  - Deployed mysql and wordpress using Ansible
+* Create a k8s cluster on amazon eks - Created using Terraform
+* Deploy a stateless application - Deployed nginx using Terraform and Helm charts
+* Deploy a stateful application  - Deployed mysql and wordpress using Ansible
 
 # Pre Requisites
 1) Install Terraform .
