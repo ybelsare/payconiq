@@ -29,10 +29,9 @@ https://github.com/ybelsare/payconiq.git
 1) Install Terraform .
 2) Install Ansible 
 3) Install AWS CLI 
-    *Configure AWS CLI by the command . NOTE - The secret will be send by email seperately 
-    *$ AWS configure
-    *verify by
-    *$ aws configure list
+    a) Configure AWS CLI by the command . NOTE - The secret will be send by email seperately 
+    b) $ AWS configure
+    c) verify by $ aws configure list
 4) Install AWS IAM Authenticator 
 5) Install kubectl . (verify by using some kubectl commands)
 6) Add all of the above in $PATH
