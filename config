@@ -1,0 +1,39 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: /Users/yogeshb/.minikube/ca.crt
+    server: https://192.168.99.101:8443
+  name: minikube
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01Ea3hNVEV6TkRFeE0xb1hEVE13TURrd09URXpOREV4TTFvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTDk2CmNZTVg5SFdiT2ppekFMazMzTGQ0UFk0TWpDTDRIWHVEN0NOOXFPZkJyRlBDd05sTCtFdm44enc4aG05Y2dHeGsKbFJoSXZLSWRDZS9iVTIyRU16Q3RzaUFDdjRKa2xZTzFpMzFpZVZjNzhxemRhRGhvUVpxQ0cyMUt1UkMxZENtcgpKVHpzSnJieXhqTUNGTFkrdkVwY3hEd2V4ZGNOSk1ablFsMjdOTmFoVm94VXdQZWlBSjY2TGY2b0ozTHhYQ1VPCjRFQ0hneW1iNEl1eDA3Z0lCaFBVUXFNZ1NUUVJ3QytTVTQ5SmZJRHkrS21La0NMQ1c1empRUC9tOUIrVnp0MnQKMThHb2twK2lhTHJ1YW1iQ0RmWmdDWWNPNWkvSWNCKzdmcDZkWEM1YzFBVzhBYTE1cUlHRUQ5aGNuYVkrdGpieAozaXpmMVd0RWFsbXV5eTRKM1ZFQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFJdkRmSUdKRW5OTzZ3Z2JIZmNwUGwwZFFFMGkKS3R4L3N1VzgzQS80ajBsSTZxVi9QN3BpakhSd2lweEc4UmJXc281WForYk8xNmQyemgweTBJcm95V2xDalZVMQpIK3RMTTVFUzhubis2Y0xWY2ltci84SXNUM2NjdGtCSVZSSmRnQ3B4azBmaVU3WENMOENzS0dmQ3dZZnJmQk5iCmZ5UkZyUnZpTjNlcFdlV3pXbTRzSk9XcXdzV0RhN0wwWUhDZ3NQU0lIZUFFUE01ZG9KZGJWRVY3cHQ4NFhiYmwKRXlTOUxWSXBnemJxWGYybUswWVB5SVhhZ1pOemJ1MkdrZXRodUZaSGxCRmRTbzIvS2VXL1htMXVaTHltRFBVUApaUytiUlhnczhWZ3VQOE0vdDZBNDJIK3JvT3VzMmNaM3NMQk9STmNEbDZKRDB5Rm96NWFsRVRONnk5cz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://55C8E807BE264EAC70BC6C54FAECD508.gr7.us-west-2.eks.amazonaws.com
+  name: arn:aws:eks:us-west-2:741775468340:cluster/terraform-eks-demo
+contexts:
+- context:
+    cluster: minikube
+    user: minikube
+  name: minikube
+- context:
+    cluster: arn:aws:eks:us-west-2:741775468340:cluster/terraform-eks-demo
+    user: arn:aws:eks:us-west-2:741775468340:cluster/terraform-eks-demo
+  name: arn:aws:eks:us-west-2:741775468340:cluster/terraform-eks-demo
+current-context: arn:aws:eks:us-west-2:741775468340:cluster/terraform-eks-demo
+kind: Config
+preferences: {}
+users:
+- name: minikube
+  user:
+    client-certificate: /Users/yogeshb/.minikube/profiles/minikube/client.crt
+    client-key: /Users/yogeshb/.minikube/profiles/minikube/client.key
+- name: arn:aws:eks:us-west-2:741775468340:cluster/terraform-eks-demo
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - us-west-2
+      - eks
+      - get-token
+      - --cluster-name
+      - terraform-eks-demo
+      command: aws
