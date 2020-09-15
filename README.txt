@@ -73,6 +73,34 @@ This will deploy the nginx webserver on the eks cluster listening on port 80
 3) run the command $> ansible-playbook deploy.yml to create the wordpress deployment
 4) run the command $> ansible-playbook delete.yml to clean up 
 
+# Screenshots
+(base) Yogesh-Belsares-MacBook:~ yogeshb$ kubectl get pods
+NAME                               READY   STATUS    RESTARTS   AGE
+nginx-7c76878bd-wg5pc              1/1     Running   0          3d15h
+wordpress-6c8d7d9b5c-zf947         1/1     Running   0          2d16h
+wordpress-mysql-5b697dbbfc-npwgh   1/1     Running   0          2d16h
+
+(base) Yogesh-Belsares-MacBook:~ yogeshb$ kubectl get nodes
+NAME                                       STATUS   ROLES    AGE     VERSION
+ip-10-0-0-146.us-west-2.compute.internal   Ready    <none>   3d20h   v1.17.9-eks-4c6976
+
+(base) Yogesh-Belsares-MacBook:~ yogeshb$ kubectl get svc
+NAME              TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)                      AGE
+kubernetes        ClusterIP      172.20.0.1       <none>                                                                    443/TCP                      3d20h
+nginx             LoadBalancer   172.20.210.216   a32d51f92ef2e46d6a127dd9bf61020f-2135397906.us-west-2.elb.amazonaws.com   80:30515/TCP,443:32036/TCP   3d15h
+wordpress         LoadBalancer   172.20.113.228   ab82a6df5efc54c38910585c497c3fbe-1823680208.us-west-2.elb.amazonaws.com   80:31611/TCP                 118s
+wordpress-mysql   ClusterIP      None             <none>                                                                    3306/TCP                     2m7s
+                                                                3306/TCP                     2d16h
+(base) Yogesh-Belsares-MacBook:~ yogeshb$ 
+
+# Accessing the application
+use the output of the $kubectl get svc command to access the application . see the output of the command
+shown above and use the url mentioned in the EXTERNAL-IP column
+For nginx
+http://a32d51f92ef2e46d6a127dd9bf61020f-2135397906.us-west-2.elb.amazonaws.com/
+For wordpress
+http://ab82a6df5efc54c38910585c497c3fbe-1823680208.us-west-2.elb.amazonaws.com/
+
 # Credits
 1) github/hashicorp     terraform examples
 2) github/geerlingguy   k8s wordpress and my-sql deployments yml 
