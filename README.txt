@@ -6,7 +6,7 @@ There are 2 options
 .tfstate file 
 2) Change the cluster name in variables.tf and create the cluster with your new name. 
 In this case you will need to make sure that the kubectl update config command is run and
-points to the new cluster
+points to the new cluster . 
 3) The kubectl config file i have supplied is for reference and will not work as it is . This contains
 references to my folders
 4) you can use the delete.yml to delete the wordpress and mysql configuration
