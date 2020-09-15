@@ -9,6 +9,7 @@ In this case you will need to make sure that the kubectl update config command i
 points to the new cluster
 3) The kubectl config file i have supplied is for reference and will not work as it is . This contains
 references to my folders
+4) you can use the delete.yml to delete the wordpress and mysql configuration
 
 # payconiq
 # Github
