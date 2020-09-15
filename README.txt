@@ -1,3 +1,15 @@
+NOTES:
+The eks cluster and the deployments are already done and will be present when you start to check this .
+I have not cleaned up the resources in case you want to investigate what has been deployed .
+There are 2 options
+1) Cleanup everything using AWS console . terraform destroy command wont work as you will not have the 
+.tfstate file 
+2) Change the cluster name in variables.tf and create the cluster with your new name. 
+In this case you will need to make sure that the kubectl update config command is run and
+points to the new cluster
+3) The kubectl config file i have supplied is for reference and will not work as it is . This contains
+references to my folders
+
 # payconiq
 # Github
 https://github.com/ybelsare/payconiq.git
@@ -36,16 +48,25 @@ https://github.com/ybelsare/payconiq.git
 4) Install AWS IAM Authenticator 
 5) Install kubectl . (verify by using some kubectl commands)
 6) Add all of the above in $PATH
-7) setup your kubeconfig file by the command update-kubeconfig where terraform-eks-demo is the name of the  cluster.
-   by default this file is in ~/.kube/config.
-   Config file for this assignment is added in the github repository . Copy it in your ~/.kube folder
+7) VERY IMPORTANT :- setup your kubeconfig file by the command update-kubeconfig where terraform-eks-demo is the name of the  cluster.
+   by default this file is in ~/.kube/config. 
    
    $ aws eks update-kubeconfig --name terraform-eks-demo
 
+
+   IT IS RECOMMENDED THAT YOU KEEP THE CONFIG FILE 
+   IN THE DEFAULT FOLDER . IN CASE YOU DECIDE ON ANY OTHER FOLDER THEN YOU WILL NEED TO CHANGE THE
+   provider.tf TO POINT TO YOUR CONFIG FILE . ALSO YOU WILL NEED TO RUN kubectl SPECIFYING YOUR CONFIG FILE
+   
+   Config file for this assignment is added in the github repository . 
+   
+   
 # Steps
 Before starting verify that all pre requistes are met and all the tools are properly configured and operational
 1) Clone the above mentioned repository from the develop branch
 2) Navigate to the folder payconiq
+3) To change the cluster name modify the file variables.tf and set the  variable "cluster-name" to
+the cluster name you want
 # Create the eks cluster    
 3) Navigate to the terraform-eks folder
 4) run the following commands
@@ -57,7 +78,9 @@ This will create a eks cluster . (NOTE - This will take approx 10 mins) with the
     Cluster name = terraform-eks-demo
     node         = demo
 
-5) run $ terraform destroy   to clean up 
+5) run $ terraform destroy   to clean up
+NOTE :- Terraform destroy might not work on your if you have do not have the proper .tfstate . In this case
+destroy the clusters using aws console.
 
 # Deploy the stateless nginx application
 1) Navigate to the folder terraform-helm-nginx folder
@@ -90,9 +113,9 @@ kubernetes        ClusterIP      172.20.0.1       <none>                        
 nginx             LoadBalancer   172.20.210.216   a32d51f92ef2e46d6a127dd9bf61020f-2135397906.us-west-2.elb.amazonaws.com   80:30515/TCP,443:32036/TCP   3d15h
 wordpress         LoadBalancer   172.20.113.228   ab82a6df5efc54c38910585c497c3fbe-1823680208.us-west-2.elb.amazonaws.com   80:31611/TCP                 118s
 wordpress-mysql   ClusterIP      None             <none>                                                                    3306/TCP                     2m7s
-                                                                3306/TCP                     2d16h
-(base) Yogesh-Belsares-MacBook:~ yogeshb$ 
 
+
+The word document shows the screenshots of the Running application in the browser
 # Accessing the application
 use the output of the $kubectl get svc command to access the application . see the output of the command
 shown above and use the url mentioned in the EXTERNAL-IP column
@@ -100,6 +123,10 @@ For nginx
 http://a32d51f92ef2e46d6a127dd9bf61020f-2135397906.us-west-2.elb.amazonaws.com/
 For wordpress
 http://ab82a6df5efc54c38910585c497c3fbe-1823680208.us-west-2.elb.amazonaws.com/
+
+#Problems
+Accessing the aws url sometimes resulted in too many redirects . Clearing the cache , cookies fixed
+the issue . Need investigation on why this was happening .
 
 # Credits
 1) github/hashicorp     terraform examples
